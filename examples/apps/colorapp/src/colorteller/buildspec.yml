@@ -24,5 +24,6 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
       - printf '[{"name":"colorteller","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - pwd; ls
 artifacts:
-    files: imagedefinitions.json
+    files: $CODEBUILD_SRC_DIR/imagedefinitions.json
