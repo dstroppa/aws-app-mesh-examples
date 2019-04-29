@@ -16,7 +16,7 @@ $ curl -s http://colorgateway.default.svc.cluster.local:9080/color
 color-gateway app runs as a service in ECS, optionally exposed via external load-balancer (ALB). Each task in gateway is configured with the endpoint of color-teller service that it communicates with via Envoy that is configured by AWS App Mesh.
 
 ### ColorTeller
-__color-teller__ is a simple http service written in go that is configured to return a color. This configuration is provided as environment variable and is run within a task along with Envoy. Multiple versions of this service are deployed each configured to return a specific color. 
+__color-teller__ is a simple http service written in go that is configured to return a color. This configuration is provided as environment variable and is run within a task along with Envoy. Multiple versions of this service are deployed each configured to return a specific color.
 
 ## Setup
 
@@ -37,6 +37,14 @@ $ ./ecs/ecs-colorapp.sh
 ```
 <ec2-bastion-host>$ curl -s http://colorgateway.${SERVICES_DOMAIN}:9080/color
 ```
+
+### Fargate
+* Deploy color-teller and color-gateway to Fargate
+
+```
+$ ./fargate/ecs-colorapp.sh
+```
+
 
 ### EKS
 * Deploy color-teller and color-gateway to EKS
