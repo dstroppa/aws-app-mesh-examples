@@ -22,7 +22,8 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - cd; pwd
       - echo Writing image definitions file...
       - printf '[{"name":"gateway","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
-    files: $CODEBUILD_SRC_DIR/examples/apps/colorapp/src/gateway/imagedefinitions.json
+    files: imagedefinitions.json
