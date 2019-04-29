@@ -24,6 +24,6 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - cd $CODEBUILD_SRC_DIR
       - echo Writing image definitions file...
-      - printf '[{"name":"gateway","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
