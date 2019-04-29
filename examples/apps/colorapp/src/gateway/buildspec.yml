@@ -25,4 +25,4 @@ phases:
       - echo Writing image definitions file...
       - printf '[{"name":"gateway","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
-    files: imagedefinitions.json
+    files: $CODEBUILD_SRC_DIR/examples/apps/colorapp/src/gateway/imagedefinitions.json
